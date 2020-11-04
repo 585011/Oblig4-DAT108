@@ -19,6 +19,13 @@ public class Passord {
 	public String toString() {
 		return "Passord [pwd_hash=" + pwd_hash + ", pwd_salt=" + pwd_salt + "]";
 	}
+	
+	public String getPwd_hash() {
+		return pwd_hash;
+	}
+	public String getPwd_salt() {
+		return pwd_salt;
+	}
 
 	public static Passord lagPassord(String passordKlartekst) {
 		String salt = Passordhjelper.genererTilfeldigSalt();
