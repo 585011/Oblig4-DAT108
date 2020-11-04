@@ -13,7 +13,7 @@ public class DeltagerDAO {
 	private EntityManager em;
 	
 	public List<Deltager> hentAlleBrukere(){
-		return em.createQuery("SELECT d FROM Deltager d", Deltager.class).getResultList();
+		return em.createQuery("SELECT d FROM Deltager d ORDER BY fornavn", Deltager.class).getResultList();
 	}
 	
 	public synchronized Deltager hentDeltager(String mobilnr) {

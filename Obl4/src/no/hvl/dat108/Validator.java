@@ -17,10 +17,7 @@ public class Validator {
 	}
 
 	public static boolean isValidFirstname(String fornavn) {
-		if (fornavn == null) {
-			return false;
-		}
-		return fornavn.matches("^" + UPPERCASE_FIRST + "[a-zA-ZÊ¯Â∆ÿ≈\\s-]{1,19}$");
+		return fornavn != null && fornavn.matches("^" + UPPERCASE_FIRST + "[a-zA-ZÊ¯Â∆ÿ≈\\s-]{1,19}$");
 	}
 
 	public static boolean isValidLastname(String etternavn) {
@@ -47,4 +44,5 @@ public class Validator {
 	public static boolean liktPassord(String pass1, String pass2) {
 		return pass1.equals(pass2);
 	}
+	
 }

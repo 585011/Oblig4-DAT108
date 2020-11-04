@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="main.css">
 <!-- Fra https://purecss.io/ -->
 <link rel="stylesheet"
 	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<script src="js/validering.js" defer></script>
 <title>Påmelding</title>
 </head>
 <body>
@@ -16,7 +18,7 @@
 		<fieldset>
 			<div class="pure-control-group">
 				<label for="fornavn">Fornavn:</label> <input type="text"
-					name="fornavn" value="" /> 
+					name="fornavn" value="{skjema.fornavn}" /> 
 					<font color="red">Ugyldig fornavn</font>
 			</div>
 			<div class="pure-control-group">
