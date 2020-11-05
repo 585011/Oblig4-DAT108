@@ -141,8 +141,12 @@ public class Deltagerliste {
 	}
 
 	public Deltager lagDeltager() {
-		Passord pass = Passord.lagPassord(passord);
-		return new Deltager(fornavn, etternavn, mobil, pass.toString(), kjonn);
+//		Passord pass = Passord.lagPassord(passord);
+		PassordUtil pwUtil = new PassordUtil();
+		passord = pwUtil.krypterPassord(passord);
+		
+//		String pass1 = Pas
+		return new Deltager(fornavn, etternavn, mobil, passord, kjonn);
 	}
 	
 }

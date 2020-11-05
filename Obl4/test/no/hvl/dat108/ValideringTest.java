@@ -14,7 +14,7 @@ public class ValideringTest {
 		assertTrue("Ole-Martin".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
 		assertTrue("Jens Kristian".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
 		assertFalse("0le".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
-		assertFalse("Oooooollllleeeeeeeeee".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
+		assertFalse("Oooooollllllleeeeeeeeee".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
 		assertFalse("o".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
 		assertFalse("".matches("^" + UPPERCASE_FIRST + "[a-zA-Zזרוֶ״ֵ\\s-]{1,19}$"));
 	}
@@ -50,6 +50,7 @@ public class ValideringTest {
 	@Test
 	public void validMinLengthPass() {
 		assertTrue("pass".matches("[a-zA-Zזרוֶ״ֵ0-9]{4,}$"));
+		assertTrue("pass12345".matches("[a-zA-Zזרוֶ״ֵ0-9]{4,}$"));
 		assertTrue("1234".matches("[a-zA-Zזרוֶ״ֵ0-9]{4,}$"));
 		assertFalse("123".matches("[a-zA-Zזרוֶ״ֵ0-9]{4,}$"));
 		assertFalse("".matches("[a-zA-Zזרוֶ״ֵ0-9]{4,}$"));

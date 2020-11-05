@@ -18,28 +18,28 @@
 		<fieldset>
 			<div class="pure-control-group">
 				<label for="fornavn">Fornavn:</label> <input type="text"
-					name="fornavn" value="{skjema.fornavn}" /> 
+					name="fornavn" value="${deltagerliste.fornavn}" /> 
 					<font color="red">Ugyldig fornavn</font>
 			</div>
 			<div class="pure-control-group">
 				<label for="etternavn">Etternavn:</label> <input type="text"
-					name="etternavn" value="" /> 
+					name="etternavn" value="${deltagerliste.etternavn}" /> 
 					<font color="red">Ugyldig etternavn</font>
 			</div>
 			<div class="pure-control-group">
 				<label for="mobil">Mobil (8 siffer):</label> <input type="text"
-					name="mobil" value="" /> 
+					name="mobil" value="${deltagerliste.mobil}" /> 
 					<font color="red">Ugyldig mobil</font>
 			</div>
 			<div class="pure-control-group">
 				<label for="password">Passord:</label> <input type="password"
-					name="passord" value="" /> 
+					name="passord" value="${deltagerliste.passord}" /> 
 					<font color="red">Ugyldig passord</font>
 			</div>
 			<div class="pure-control-group">
 				<label for="passordRepetert">Passord repetert:</label> <input
 					type="password" name="passordRepetert"
-					value="" /> 
+					value="${deltagerliste.passordRepeter}" /> 
 					<font color="red">Passordene må være like</font>
 			</div>
 			<div class="pure-control-group">

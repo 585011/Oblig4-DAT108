@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class PaameldingServlet
@@ -36,21 +37,30 @@ public class PaameldingServlet extends HttpServlet {
 //		PassordUtil passUtil = new PassordUtil();
 //		String hashPassord = passUtil.krypterPassord(passord);
 //		
+		
+		
 		//må legge til deltager med DAO greier
 		Deltagerliste deltagerliste = new Deltagerliste(request);
 		if(deltagerliste.isAllInputGyldig()) {
+			HttpSession sesjon = request.getSession(false);
 			Deltager nyDeltager = deltagerliste.lagDeltager();
 			deltagerDAO.lagreNyDeltager(nyDeltager);
-			deltagerDAO.oppdaterDeltagerliste(deltagerliste);
-			request.getSession().removeAttribute("deltagerliste");
+//			deltagerDAO.oppdaterDeltagerliste(deltagerliste);
+//			request.getSession().removeAttribute("deltagerliste");
 //			request.setAttribute("deltagerliste", deltagerliste);
-//			request.setAttribute("fornavn", fornavn);
-//			request.setAttribute("etternavn", etternavn);
-//			request.setAttribute("mobil", mobil);
-//			request.setAttribute("passord", hashPassord);
-//			request.setAttribute("kjonn", kjonn);
+			if(sesjon != null) {
+				sesjon.invalidate();
+			}
+			sesjon = request.getSession(true);
+			request.getSession().setAttribute("fornavn", deltagerliste.getFornavn());
+			request.getSession().setAttribute("etternavn", deltagerliste.getEtternavn());
+			request.getSession().setAttribute("mobil", deltagerliste.getMobil());
+			request.getSession().setAttribute("passord", deltagerliste.getPassord());
+			request.getSession().setAttribute("kjonn", deltagerliste.getKjonn());
+			request.setAttribute("deltagerliste", deltagerliste);
 //			request.getRequestDispatcher("WEB-INF/paameldingsbekreftelse.jsp").forward(request, response);
-			response.sendRedirect("paameldingsbekreftelse.html");
+			
+			response.sendRedirect("paameldingsbekreftelse");
 		} else {
 			deltagerliste.settOppFeilMeldinger();
 			request.setAttribute("deltagerliste", deltagerliste);

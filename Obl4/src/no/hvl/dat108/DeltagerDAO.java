@@ -13,16 +13,16 @@ public class DeltagerDAO {
 	private EntityManager em;
 	
 	public List<Deltager> hentAlleBrukere(){
-		return em.createQuery("SELECT d FROM Deltager d ORDER BY fornavn", Deltager.class).getResultList();
+		return em.createQuery("SELECT d FROM Deltager d ORDER BY d.fornavn", Deltager.class).getResultList();
 	}
 	
-	public synchronized Deltager hentDeltager(String mobilnr) {
+	public Deltager hentDeltager(String mobilnr) {
 		return em.find(Deltager.class, mobilnr);
 	}
-	public synchronized Deltagerliste hentDeltagerliste(int id) {
-		return em.find(Deltagerliste.class, id);
-	}
-	public synchronized void lagreNyDeltager(Deltager deltager) {
+//	public synchronized Deltagerliste hentDeltagerliste(int id) {
+//		return em.find(Deltagerliste.class, id);
+//	}
+	public void lagreNyDeltager(Deltager deltager) {
 		em.persist(deltager);
 	}
 	

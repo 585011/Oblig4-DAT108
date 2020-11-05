@@ -7,31 +7,35 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema = "Obl4", name = "deltager")
+@Table(schema = "obl4", name = "deltager")
 public class Deltager {
 
 	@Id
-	private String mobilnr;
+	private String mobil;
 
 	private String fornavn;
 	private String etternavn;
-	private String hashpass;
+	private String passord;
 	private String kjonn;
 
-	@ManyToOne
-	@JoinColumn(name = "deltagerliste_id", referencedColumnName = "id")
-	private Deltagerliste deltagerliste;
+//	@ManyToOne
+//	@JoinColumn(name = "deltagerliste_id", referencedColumnName = "id")
+//	private Deltagerliste deltagerliste;
 
-	public Deltager(String fornavn, String etternavn, String mobil, String kjonn, String pass) {
+	public Deltager() {
+		
+	}
+	
+	public Deltager(String fornavn, String etternavn, String mobil, String pass, String kjonn) {
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
-		this.mobilnr = mobil;
+		this.mobil = mobil;
 		this.kjonn = kjonn;
-		this.hashpass = pass;
+		this.passord = pass;
 	}
 
 	public String getMobilnr() {
-		return mobilnr;
+		return mobil;
 	}
 
 	public String getFornavn() {
@@ -51,11 +55,11 @@ public class Deltager {
 	}
 
 	public String getHashpass() {
-		return hashpass;
+		return passord;
 	}
 
 	public void setHashpass(String hashpass) {
-		this.hashpass = hashpass;
+		this.passord = hashpass;
 	}
 
 	public String getKjonn() {
@@ -67,13 +71,13 @@ public class Deltager {
 	}
 
 	public void setMobilnr(String mobilnr) {
-		this.mobilnr = mobilnr;
+		this.mobil = mobilnr;
 	}
 
 	@Override
 	public String toString() {
-		return "Deltager [mobilnr=" + mobilnr + ", fornavn=" + fornavn + ", etternavn=" + etternavn + ", hashpass="
-				+ hashpass + ", kjonn=" + kjonn + "]";
+		return "Deltager [mobilnr=" + mobil + ", fornavn=" + fornavn + ", etternavn=" + etternavn + ", passord="
+				+ passord + ", kjonn=" + kjonn + "]";
 	}
 
 }

@@ -8,63 +8,63 @@ public class ValidatorTest {
 
 	@Test
 	public void validFirstnamesOk() {
-		assertTrue(Validator.isValidFirstname("Ole"));
-		assertTrue(Validator.isValidFirstname("Ole-Martin"));
-		assertTrue(Validator.isValidFirstname("Jens Kristian"));
+		assertTrue(Deltagerliste.isValidFirstname("Ole"));
+		assertTrue(Deltagerliste.isValidFirstname("Ole-Martin"));
+		assertTrue(Deltagerliste.isValidFirstname("Jens Kristian"));
 	}
 	
 	@Test
 	public void validLastnamesOk() {
-		assertTrue(Validator.isValidLastname("Olsen"));
-		assertTrue(Validator.isValidLastname("Olsen-Olsen"));
-		assertTrue(Validator.isValidLastname("Åge-Øyær"));
+		assertTrue(Deltagerliste.isValidLastname("Olsen"));
+		assertTrue(Deltagerliste.isValidLastname("Olsen-Olsen"));
+		assertTrue(Deltagerliste.isValidLastname("Åge-Øyær"));
 	}
 
 	@Test
 	public void norwegianLettersAllowed() {
-		assertTrue(Validator.isValidFirstname("ÆØÅæøå"));
-		assertTrue(Validator.isValidLastname("ÆØÅæøå"));
+		assertTrue(Deltagerliste.isValidFirstname("ÆØÅæøå"));
+		assertTrue(Deltagerliste.isValidLastname("ÆØÅæøå"));
 	}
 	
 	@Test
 	public void shortFirstnamesNotOk() {
-		assertFalse(Validator.isValidFirstname(""));
-		assertFalse(Validator.isValidFirstname("A"));
-		assertFalse(Validator.isValidFirstname(null));
-		assertFalse(Validator.isValidFirstname("martin"));
-		assertFalse(Validator.isValidFirstname("1Martin"));
+		assertFalse(Deltagerliste.isValidFirstname(""));
+		assertFalse(Deltagerliste.isValidFirstname("A"));
+		assertFalse(Deltagerliste.isValidFirstname(null));
+		assertFalse(Deltagerliste.isValidFirstname("martin"));
+		assertFalse(Deltagerliste.isValidFirstname("1Martin"));
 	}
 	
 	@Test
 	public void notOkLastnames() {
-		assertFalse(Validator.isValidLastname(""));
-		assertFalse(Validator.isValidLastname("A"));
-		assertFalse(Validator.isValidLastname(null));
-		assertFalse(Validator.isValidLastname("Olsen Ols"));
-		assertFalse(Validator.isValidLastname("olsen"));
-		assertFalse(Validator.isValidLastname("5olsen"));
+		assertFalse(Deltagerliste.isValidLastname(""));
+		assertFalse(Deltagerliste.isValidLastname("A"));
+		assertFalse(Deltagerliste.isValidLastname(null));
+		assertFalse(Deltagerliste.isValidLastname("Olsen Ols"));
+		assertFalse(Deltagerliste.isValidLastname("olsen"));
+		assertFalse(Deltagerliste.isValidLastname("5olsen"));
 	}
 	
 	@Test
 	public void validMobileOk() {
-		assertTrue(Validator.isValidMobil("12345678"));
-		assertFalse(Validator.isValidMobil("1b3f567a"));
+		assertTrue(Deltagerliste.isValidMobil("12345678"));
+		assertFalse(Deltagerliste.isValidMobil("1b3f567a"));
 	}
 	
 	@Test
 	public void validMinLengthPass() {
-		assertTrue(Validator.passordMinlengde("pass"));
-		assertTrue(Validator.passordMinlengde("1234"));
-		assertFalse(Validator.passordMinlengde("123"));
-		assertFalse(Validator.passordMinlengde(""));
-		assertFalse(Validator.passordMinlengde(null));
+		assertTrue(Deltagerliste.passordMinlengde("pass"));
+		assertTrue(Deltagerliste.passordMinlengde("1234"));
+		assertFalse(Deltagerliste.passordMinlengde("123"));
+		assertFalse(Deltagerliste.passordMinlengde(""));
+		assertFalse(Deltagerliste.passordMinlengde(null));
 	}
 	
 	@Test
 	public void samePasswordTest() {
-		assertTrue(Validator.liktPassord("Pass", "Pass"));
-		assertTrue(Validator.liktPassord("12345", "12345"));
-		assertFalse(Validator.liktPassord("Pass", "Pass1"));
+		assertTrue(Deltagerliste.liktPassord("Pass", "Pass"));
+		assertTrue(Deltagerliste.liktPassord("12345", "12345"));
+		assertFalse(Deltagerliste.liktPassord("Pass", "Pass1"));
 		
 	}
 }
